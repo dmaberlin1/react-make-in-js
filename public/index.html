@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="background-color: black;margin: 0;padding: 0">
+
+<!--<div class="app">-->
+<!--    <header class="header"><img src="" alt=""></header>-->
+<!--    <div class="clock">12-00-00</div>-->
+
+<!--    <div class="lots">-->
+<!--        <article class="lot">-->
+<!--            <div class="price">20</div>-->
+<!--            <h1>Apple</h1>-->
+<!--            <p>Apple description</p>-->
+<!--        </article>-->
+
+<!--        <article class="lot">-->
+<!--        <div class="price">41</div>-->
+<!--        <h1>Orange</h1>-->
+<!--        <p>Orange description</p>-->
+<!--    </article>-->
+<!--   </div>-->
+<!--</div>-->
+
+<div id="root"></div>
+
+
+<script>
+    const domRoot = document.getElementById('root')
+    const header = document.createElement('header')
+    const divMain=document.createElement('div')
+    const logo = document.createElement('img')
+    const logo1 = document.createElement('img')
+    const logo2 = document.createElement('img')
+    const logo3 = document.createElement('img')
+    const clock=document.createElement('div')
+    const time=new Date()
+
+    clock.className='clock'
+    clock.style.fontSize='40px'
+    clock.style.display='flex'
+    clock.style.alignContent='center'
+    clock.style.justifyContent = 'center'
+
+    clock.innerText=time.toLocaleTimeString()
+
+
+    divMain.className='div'
+    divMain.style.backgroundColor='rgba(23,43,47,0.9)'
+    divMain.style.marginTop='50px'
+
+    header.className = 'header'
+    header.style.backgroundColor = '#2a414f'
+    header.style.display = 'flex'
+    header.style.maxWidth='1000px'
+    header.style.alignContent ='center'
+    header.style.justifyContent = 'center'
+
+    logo.className = 'logo'
+    logo.src = 'logo.jpg'
+    logo.style.width = '440px'
+    logo.style.height = '300px'
+
+    logo1.className = 'logo1'
+    logo1.src = './img/sopranos.webp'
+    logo1.style.width = '440px'
+    logo1.style.height = '300px'
+
+    logo2.className = 'logo2'
+    logo2.src = './img/sopranos2.jpg'
+    logo2.style.width = '440px'
+    logo2.style.height = '300px'
+
+    logo3.className = 'logo3'
+    logo3.src = './img/sopranos3.jpg'
+    // logo3.style.width = '440px'
+    logo3.style.height = '300px'
+    header.append(logo)
+    header.append(logo1)
+    // header.append(logo2)
+    header.append(logo3)
+    divMain.append(clock)
+    domRoot.append(header)
+    domRoot.append(divMain)
+
+
+</script>
+
+</body>
+</html>
