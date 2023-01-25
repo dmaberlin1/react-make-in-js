@@ -33,62 +33,138 @@
 
 <script>
     const domRoot = document.getElementById('root')
-    const header = document.createElement('header')
-    const divMain=document.createElement('div')
-    const logo = document.createElement('img')
-    const logo1 = document.createElement('img')
-    const logo2 = document.createElement('img')
-    const logo3 = document.createElement('img')
-    const clock=document.createElement('div')
-    const time=new Date()
 
-    clock.className='clock'
-    clock.style.fontSize='40px'
-    clock.style.display='flex'
-    clock.style.alignContent='center'
-    clock.style.justifyContent = 'center'
+    const app=document.createElement('div')
+    const state = {
+        time: new Date(),
+        lots: [
+            {
+                id: 1,
+                name: 'Apple',
+                description: 'Apple description',
+                price: 16
+            },
+            {
+                id:2,
+                name:'Orange',
+                description: 'Orange Description ',
+                price: 25
+            },
+        ]
+    }
 
-    clock.innerText=time.toLocaleTimeString()
+
+    state.lots.forEach((lot)=>{
+        const node=document.createElement('article')
+        node.className='lot'
+        // node.style.display=''
+        // node.style.justifyContent='space-between'
+        // node.style.textAlign='left'
+        // node.style.fontSize='20px'
+        // node.style.margin='20px'
+        // node.style.padding='10px'
+            node.style.border='solid 1px black'
+                node.style.margin='2px'
+            node.style.color='blue'
+        node.style.backgroundColor='#153434'
+        const nameLot=lot.name
+        const priceLot=lot.price
+        const descriptionLot=lot.description
+        const name=document.createElement('h1')
+        const price=document.createElement('div')
+        const description=document.createElement('p')
+        name.innerText=nameLot
+        price.innerText=priceLot
+        description.innerText=descriptionLot
+        node.append(price)
+        node.append(name)
+
+        node.append(description)
+        divMain.append(node)
+
+    })
+
+    function getDivMain() {
+        const divMain = document.createElement('div')
+        
+    }
+    function getClock() {
+        const clock = document.createElement('div')
+        clock.className = 'clock'
+        clock.style.fontSize = '40px'
+        clock.style.display = 'flex'
+        clock.style.alignContent = 'center'
+        clock.style.justifyContent = 'center'
+        clock.innerText = state.time.toLocaleTimeString()
+
+        return clock
+    }
 
 
-    divMain.className='div'
-    divMain.style.backgroundColor='rgba(23,43,47,0.9)'
-    divMain.style.marginTop='50px'
+    divMain.className = 'div'
+    divMain.style.backgroundColor = 'rgba(23,43,47,0.9)'
+    divMain.style.marginTop = '50px'
+    function getHeader() {
+        const header = document.createElement('header')
+        header.className = 'header'
+        header.style.backgroundColor = '#2a414f'
+        header.style.display = 'flex'
+        header.style.maxWidth = '600px'
+        header.style.alignContent = 'center'
+        header.style.justifyContent = 'center'
+        return header
+    }
 
-    header.className = 'header'
-    header.style.backgroundColor = '#2a414f'
-    header.style.display = 'flex'
-    header.style.maxWidth='1000px'
-    header.style.alignContent ='center'
-    header.style.justifyContent = 'center'
 
-    logo.className = 'logo'
-    logo.src = 'logo.jpg'
-    logo.style.width = '440px'
-    logo.style.height = '300px'
+    function getLogo() {
+        const logo = document.createElement('img')
+        logo.className = 'logo'
+        logo.src = 'logo.jpg'
+        // logo.style.width = '240px'
+        logo.style.height = '300px'
+        return logo
 
-    logo1.className = 'logo1'
-    logo1.src = './img/sopranos.webp'
-    logo1.style.width = '440px'
-    logo1.style.height = '300px'
+    }
+    function getLogo1() {
+        const logo1 = document.createElement('img')
 
-    logo2.className = 'logo2'
-    logo2.src = './img/sopranos2.jpg'
-    logo2.style.width = '440px'
-    logo2.style.height = '300px'
+        logo1.className = 'logo1'
+        logo1.src = './img/sopranos.webp'
+        // logo1.style.width = '240px'
+        logo1.style.height = '300px'
+        return logo1
 
-    logo3.className = 'logo3'
-    logo3.src = './img/sopranos3.jpg'
-    // logo3.style.width = '440px'
-    logo3.style.height = '300px'
-    header.append(logo)
-    header.append(logo1)
-    // header.append(logo2)
-    header.append(logo3)
-    divMain.append(clock)
-    domRoot.append(header)
-    domRoot.append(divMain)
+    }
+    function getLogo2() {
+        const logo2 = document.createElement('img')
 
+        logo2.className = 'logo2'
+        logo2.src = './img/sopranos2.jpg'
+        // logo2.style.width = '220px'
+        logo2.style.height = '300px'
+        return logo2
+    }
+    function getLogo3() {
+
+        const logo3 = document.createElement('img')
+
+        logo3.className = 'logo3'
+        logo3.src = './img/sopranos3.jpg'
+        // logo3.style.width = '440px'
+        logo3.style.height = '300px'
+        return logo3
+    }
+
+
+    divMain.append(getClock())
+    // domRoot.append(header)
+    // domRoot.append(divMain)
+
+    app.className='App'
+    app.append(getHeader())
+    app.append(divMain)
+      app.style.maxWidth='1000px'
+    domRoot.append(app)
 
 </script>
 
